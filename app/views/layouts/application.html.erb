@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%# <%= render "shared/navbar" %>
+    <%= render "shared/navbar" %>
+    <div class="mt-5 pt-5">
+      <%= yield %>
+    </div>
     <%= render "shared/flashes" %>
     <%= render "shared/footer" %>
   </body>
