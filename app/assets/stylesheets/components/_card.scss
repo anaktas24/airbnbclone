@@ -9,14 +9,14 @@
 }
 
 .card-location-height {
-  height:50px !important;
+  height:40px !important;
   overflow: hidden;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
 .card-title-height {
-  height: 50px !important;
+  height: 40px !important;
   word-wrap: break-word  !important;
   overflow: hidden;
   margin-top: 0 !important;
@@ -31,10 +31,61 @@
   margin-bottom: 0 !important;
 }
 
+.card-body-description {
+  text-align: left !important;
+}
+
 .card-price-height {
   height: 80px !important;
   word-wrap: break-word  !important;
   overflow: hidden;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.show-card-img-container {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 16px;
+  align-items: center;
+}
+
+.show-card-img {
+  display: flex;
+  justify-content: space-around;
+}
+
+.show-card > img {
+  width: 100%;
+  object-fit: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-card-img-height {
+  height: 500px !important;
+  justify-content: center;
+}
+
+.show-card-body {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word  !important;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.show-card-body > p {
+  width: 100%;
+  height: 100%;
+}
+
+.show-card-body > * {
+  padding: 5px !important;
+  text-align: center;
+}
+
+.show-card-price {
+
 }
