@@ -1,6 +1,3 @@
-<div class="container">
-  <h2>New listing</h2>
-
   <%= simple_form_for(@listing) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
@@ -10,4 +7,3 @@
   <% end %>
   <hr>
   <%= link_to "Back to my listings", listings_path, class: "btn btn-primary w-100" %>
-</div>

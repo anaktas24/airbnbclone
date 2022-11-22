@@ -1,0 +1,40 @@
+.card-component {
+  border-radius: 8px !important;
+  // box-shadow: 4px 4px 0px 0px rgba(77,77,77,0.51);
+
+}
+
+.image {
+  height: 250px !important;
+}
+
+.card-location-height {
+  height:50px !important;
+  overflow: hidden;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.card-title-height {
+  height: 50px !important;
+  word-wrap: break-word  !important;
+  overflow: hidden;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.card-body-height {
+  height: 150px !important;
+  word-wrap: break-word  !important;
+  overflow: hidden;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.card-price-height {
+  height: 80px !important;
+  word-wrap: break-word  !important;
+  overflow: hidden;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}

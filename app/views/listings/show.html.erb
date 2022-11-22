@@ -1,2 +1,32 @@
-<h2>HELLO I'M LISTINGS > SHOW</h2>
-<h2>ADD TITLE, PHOTO, DESCRIPTION, AND REQUEST BUTTON, AND BACK TO LISTINGS BUTTON</h2>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="card-trip text-center">
+    <img src="https://random.imagecdn.app/100/150" class="w-50"/>
+    <%# update above for user uploaded images %>
+    <hr>
+    <div class="card-trip-infos">
+      <div>
+        <div class="card-body card-title-height">
+          <h4 class="card-title"><%= @listing.name %></h4>
+        </div>
+        <div class="card-body card-body-height">
+          <p class="card-text card-body-description"><%= @listing.description %></p>
+        </div>
+      </div>
+      <div class="card-body card-price-height">
+        <p class="card-text">Per hour: <%= @listing.price_per_hour.to_i.round(2) %> CHF</p>
+      </div>
+    </div>
+  </div>
+
+<%# if user is current user below %>
+
+  <div>
+    <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary my-3 w-100"  %>
+    <%= button_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
+    <hr>
+    <%= link_to "Go to my listings", listings_path, class: "btn btn-primary w-100" %>
+
+  </div>
+</div>
