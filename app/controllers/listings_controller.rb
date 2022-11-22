@@ -4,6 +4,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @listing = Listing.find(params[:id])
     authorize @listing
   end
 
@@ -24,18 +25,36 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    @listing = Listing.find(params[:id])
     authorize @listing
     # TO DO
   end
 
   def update
+    @listing = Listing.find(params[:id])
     authorize @listing
-    # TO DO
+
+    respond_to do |format|
+      if @listing.update(listing_params)
+        format.html { redirect_to listings_path, notice: "Listing was successfully updated." }
+        format.json { render :show, status: :ok, location: @listing }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        # need to check these erroes works (no validations)
+      end
+    end
   end
 
   def destroy
+    @listing = Listing.find(params[:id])
     authorize @listing
-    # TO DO
+    @listing.destroy
+
+    respond_to do |format|
+      format.html { redirect_to listings_path, notice: "Listing was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -43,4 +62,5 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:name, :description, :price_per_hour, :location)
   end
+
 end

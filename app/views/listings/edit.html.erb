@@ -1,10 +1,10 @@
 <div class="container">
-  <h2>New listing</h2>
+  <h2>Update listing</h2>
 
   <%= simple_form_for(@listing) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
-    <%= f.input :price_per_hour, input_html: { min: '0' }  %>
+    <%= f.input :price_per_hour %>
     <%= f.input :location %>
     <%= f.submit class: "btn btn-primary w-100" %>
   <% end %>
