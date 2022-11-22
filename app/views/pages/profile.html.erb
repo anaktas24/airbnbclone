@@ -1,0 +1,20 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col square">
+      <h1>Profile</h1>
+      <img src="https://picsum.photos/200/300" class="img-thumbnail" alt="...">
+    </div>
+    <div class="col">
+      <div class="container">
+        <%= simple_form_for(@user, url: profile_path) do |f| %>
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :phone %>
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+        <hr>
+      </div>
+    </div>
+        <%= link_to "Go back Home", root_path, class: "btn btn-primary" %>
+  </div>
+</div>
