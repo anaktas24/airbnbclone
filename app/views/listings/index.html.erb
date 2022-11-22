@@ -1,0 +1,16 @@
+<div class="container">
+
+  <h2>My listings</h2>
+
+  <%= link_to "Create new listing", new_listing_path, class: "btn btn-primary" %>
+  <hr>
+
+  <%# Iterate over listings for current_user %>
+
+  <div class="row">
+
+    <% @listings.each do |listing| %>
+        <div class="col-sm-4"><%= render 'shared/card', listing: listing %></div>
+    <% end  %>
+  </div>
+</div>
