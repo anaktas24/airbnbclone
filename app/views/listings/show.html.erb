@@ -1,32 +1,30 @@
-<div class="container">
-  <p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p>
 
-  <div class="card-trip text-center">
-    <img src="https://random.imagecdn.app/100/150" class="w-50"/>
-    <%# update above for user uploaded images %>
-    <hr>
-    <div class="card-trip-infos">
+<div class="container">
+
+  <div class="row mb-3 show-card-img-container">
+    <div class="col-sm-12 col-md-6 col-lg-4 show-card-img">
+      <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/>
+      <%# update above for user uploaded images %>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 card-body show-card-body">
+      <h5 class="card-title my-3"><%= @listing.name %></h5>
+      <p class="card-text"><%= @listing.description %></p>
       <div>
-        <div class="card-body card-title-height">
-          <h4 class="card-title"><%= @listing.name %></h4>
-        </div>
-        <div class="card-body card-body-height">
-          <p class="card-text card-body-description"><%= @listing.description %></p>
-        </div>
-      </div>
-      <div class="card-body card-price-height">
-        <p class="card-text">Per hour: <%= @listing.price_per_hour.to_i.round(2) %> CHF</p>
+        <p class="card-text show-card-price"><small class="text-muted">Per hour: <%= @listing.price_per_hour.to_i.round(2) %> CHF</small></p>
       </div>
     </div>
   </div>
 
-<%# if user is current user below %>
-
   <div>
-    <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary my-3 w-100"  %>
-    <%= button_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
+    <% if @listing.user == current_user %>
+      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary my-3 w-100"  %>
+      <%= button_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
+    <% end %>
+    <hr>
+    <%= link_to "Go to all listings", root_path, class: "btn btn-primary w-100" %>
     <hr>
     <%= link_to "Go to my listings", listings_path, class: "btn btn-primary w-100" %>
-
   </div>
+
 </div>
