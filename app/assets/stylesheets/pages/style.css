@@ -1,5 +1,9 @@
 body {
-  background: rgb(241, 240, 255)
+  background: rgb(241, 240, 255);
+  font-family: europa-regularregular, sans-serif;
+  font-weight: 400;
+  color: #4a4a4a;
+  background: #fff;
 }
 
 .form-control:focus {
@@ -31,6 +35,40 @@ body {
   color: #0f2e93;
   cursor: pointer
 }
+
+.button {
+  letter-spacing: 0;
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 3em;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+    padding: 11px 24px;
+    background-color: #fff;
+}
+.button-primary {
+  background-color: #3A9691;
+    color: #fff;
+}
+.button:hover {
+  color: #fff;
+  background-color: #52c4be;
+}
+.button:active {
+  background-color: #52c4be;
+  color:#fff;
+}
+.page-wrapper {
+  min-height: 80vh;
+
 .card-trip {
   overflow: hidden;
   background: white;
@@ -57,4 +95,5 @@ body {
 	top:0;
 	left:100px;
 	z-index:1;
+
 }
