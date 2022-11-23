@@ -21,10 +21,13 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <hr>
 
   <div>
     <% if @listing.user == current_user %>
-      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary my-3 w-100"  %>
+      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary w-100"  %>
+      <br>
+      <br>
       <%= button_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
     <% end %>
     <hr>
