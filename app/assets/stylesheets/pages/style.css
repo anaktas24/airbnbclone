@@ -31,3 +31,30 @@ body {
   color: #0f2e93;
   cursor: pointer
 }
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#thumbwrap {
+	position:relative;
+}
+.thumb span {
+	position:absolute;
+	visibility:hidden;
+}
+.thumb:hover, .thumb:hover span {
+	visibility:visible;
+	top:0;
+	left:100px;
+	z-index:1;
+}
