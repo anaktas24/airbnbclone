@@ -4,7 +4,8 @@
 
   <div class="row mb-3 show-card-img-container">
     <div class="col-sm-12 col-md-6 col-lg-4 show-card-img">
-      <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/>
+      <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/> %>
       <%# update above for user uploaded images %>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-4 card-body show-card-body">
@@ -15,7 +16,6 @@
         <div>
         Book now:
         <br>
-
 
         From: <input type="datetime-local" id="Test_DatetimeLocal" >
         <br>
@@ -28,6 +28,17 @@
         <%# <% else  %>
           <%# <p>Available</p> %>
         <%# <% end  %>
+
+        From:<input type="datetime-local" id="Test_DatetimeLocal">
+        <br>
+        Until:  <input type="datetime-local" id="Test_DatetimeLocal">
+        </div>
+        <div class="my-3">
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+          <button id="book">Book Now!</button></div>
+
+
       </div>
 
 
@@ -43,15 +54,15 @@
 
   <div>
     <% if @listing.user == current_user %>
-      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary w-100"  %>
+      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "button button-primary"  %>
       <br>
       <br>
-      <%= button_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
+      <%= button_to "Destroy this listing", @listing, method: :delete, class: "button button-primary" %>
     <% end %>
     <hr>
-    <%= link_to "Go to all listings", root_path, class: "btn btn-primary w-100" %>
+    <%= link_to "Go to all listings", root_path, class: "button button-primary" %>
     <hr>
-    <%= link_to "Go to my listings", listings_path, class: "btn btn-primary w-100" %>
+    <%= link_to "Go to my listings", listings_path, class: "button button-primary" %>
   </div>
 
 </div>
