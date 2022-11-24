@@ -6,9 +6,26 @@ body {
   background: #fff;
 }
 
+/* .form-control {
+  background-color: #fff;
+  border-style: none;
+  border-bottom: 2px solid #e3e3e3;
+} */
 .form-control:focus {
   box-shadow: none;
-  border-color: #4caeea
+  border-color: #4a4a4a;
+  background-color: #fff;
+}
+.simple_form input {
+  background-color: #fff;
+  border-style: none;
+  border-bottom: 2px solid #e3e3e3;
+}
+.simple_form input.button-primary {
+  background-color: #3A9691;
+}
+.simple_form input.button-primary:hover {
+  background-color: #52c4be;
 }
 
 .profile-button {
@@ -68,6 +85,7 @@ body {
 }
 .page-wrapper {
   min-height: 80vh;
+  margin: 30px 0px;
 }
 
 .card-trip {
@@ -84,6 +102,27 @@ body {
   width: 100%;
 }
 
+#thumbwrap {
+	position:relative;
+}
+.thumb span {
+	position:absolute;
+	visibility:hidden;
+}
+.thumb:hover, .thumb:hover span {
+	visibility:visible;
+	top:0;
+	left:100px;
+	z-index:1;
+}
+.container-form {
+  width: 40vw;
+  min-width: 400px;
+}
+
+.dropdown-item:active {
+  background-color: #3A9691;
+}
 
 #book, #book::after {
   width: 300px;

@@ -38,15 +38,15 @@
 
   <div>
     <% if @listing.user == current_user %>
-      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary w-100"  %>
+      <%= link_to "Edit this listing", edit_listing_path(@listing), class: "button button-primary"  %>
       <br>
       <br>
-      <%= link_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
+      <%= button_to "Destroy this listing", @listing, method: :delete, class: "button button-primary" %>
     <% end %>
     <hr>
-    <%= link_to "Go to all listings", root_path, class: "btn btn-primary w-100" %>
+    <%= link_to "Go to all listings", root_path, class: "button button-primary" %>
     <hr>
-    <%= link_to "Go to my listings", listings_path, class: "btn btn-primary w-100" %>
+    <%= link_to "Go to my listings", listings_path, class: "button button-primary" %>
   </div>
 
 </div>

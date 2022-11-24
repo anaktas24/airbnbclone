@@ -4,7 +4,7 @@
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
     data: {turbo: false}) do |f| %>
-    <div class="form-inputs">
+    <div class="">
       <%= f.input :email,
                   required: false,
                   autofocus: true,
@@ -15,8 +15,8 @@
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn btn-primary w-100" %>
+    <div class="">
+      <%= f.button :submit, "Log in", class: "button button-primary" %>
     </div>
   <% end %>
   <hr>
