@@ -68,6 +68,7 @@ body {
 }
 .page-wrapper {
   min-height: 80vh;
+}
 
 .card-trip {
   overflow: hidden;
