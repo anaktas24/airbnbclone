@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-form">
   <h2>New listing</h2>
 
   <%= simple_form_for(@listing) do |f| %>
@@ -6,8 +6,8 @@
     <%= f.input :description %>
     <%= f.input :price_per_hour, input_html: { min: '0' }  %>
     <%= f.input :location %>
-    <%= f.submit class: "btn btn-primary w-100" %>
+    <%= f.submit class: "button button-primary" %>
   <% end %>
   <hr>
-  <%= link_to "Back to my listings", listings_path, class: "btn btn-primary w-100" %>
+  <%= link_to "Back to my listings", listings_path, class: "button button-primary" %>
 </div>
