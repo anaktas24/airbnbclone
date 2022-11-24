@@ -23,6 +23,23 @@
   margin-bottom: 0 !important;
 }
 
+.card-picture {
+  height: 100%;
+  width: 100%;
+}
+.card-picture-container {
+  height: 150px;
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 400px;
+}
+.card p {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
 .card-body-height {
   height: 150px !important;
   word-wrap: break-word  !important;
@@ -41,6 +58,9 @@
   overflow: hidden;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+.card {
+  margin: 5px;
 }
 
 .show-card-img-container {
