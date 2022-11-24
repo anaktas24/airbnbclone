@@ -15,10 +15,14 @@
         <div>
         Availability:
         <br>
-        From: <input type="datetime-local" id="Test_DatetimeLocal">
+        From:<input type="datetime-local" id="Test_DatetimeLocal">
         <br>
-        Until: <input type="datetime-local" id="Test_DatetimeLocal">
+        Until:  <input type="datetime-local" id="Test_DatetimeLocal">
         </div>
+        <div class="my-3">
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+          <button>Book Now!</button></div>
       </div>
     </div>
   </div>
@@ -35,7 +39,7 @@
       <%= link_to "Edit this listing", edit_listing_path(@listing), class: "btn btn-primary w-100"  %>
       <br>
       <br>
-      <%= button_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
+      <%= link_to "Destroy this listing", @listing, method: :delete, class: "btn btn-primary w-100" %>
     <% end %>
     <hr>
     <%= link_to "Go to all listings", root_path, class: "btn btn-primary w-100" %>
