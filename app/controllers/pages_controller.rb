@@ -2,7 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @listings = Listing.all
+    if params[:query].present?
+      @listings = Listing.where(category_type: params[:query])
+    else
+      @listings = Listing.all
+    end
   end
 
   def profile

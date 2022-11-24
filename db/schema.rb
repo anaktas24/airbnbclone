@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_160020) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_113305) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "cat", ["Electronic", "Manual", "Gas-powered", "Other"]
+  create_enum "category", ["Electronic", "Manual", "Gas-powered", "Other"]
+  create_enum "categoryList", ["Electronic", "Manual", "Gas-powered", "Other"]
+  create_enum "status", ["Electronic", "Manual", "Gas-powered", "Other"]
 
   create_table "listings", force: :cascade do |t|
     t.string "name"
@@ -22,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_160020) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.enum "category_type", default: "Other", null: false, enum_type: "category"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
