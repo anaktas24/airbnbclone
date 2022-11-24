@@ -1,0 +1,27 @@
+<div class="card-trip">
+  <div class="col card-component text-decoration-none">
+    <img class="d-block w-100 image" src="https://random.imagecdn.app/100/150" alt="First slide">
+  </div>
+  <div class="card ">
+    <div class="card-header card-location-height">
+      <i class="fa-solid fa-location-pin "></i> <%= booking.listing.location %>
+    </div>
+    <div class="card-body card-title-height">
+      <h4 class="card-title"><%= booking.listing.name %></h4>
+    </div>
+    <div class="card-body card-body-height">
+      <p class="card-text card-body-description"><%= booking.listing.description %></p>
+    </div>
+    <div class="card-body card-price-height">
+      <p class="card-text"><i class="fa-sharp fa-solid fa-sack-dollar"></i> Per hour: <br><%= booking.listing.price_per_hour.to_i.round(2) %> CHF</p>
+    </div>
+    <div class="card-body card-price-height">
+      <% if booking.start_date == booking.end_date %>
+        <p class="card-text"><%= booking.start_date.strftime('%d %b %y') %><br>Status: <%= booking.status.capitalize %></p>
+      <% else %>
+        <p class="card-text"><%= booking.start_date.strftime('%d %b') %> - <%= booking.end_date.strftime('%d %b %Y') %><br>Status: <%= booking.status.capitalize %></p>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to '', booking_path(booking), class: 'card-link' %>
+</div>
