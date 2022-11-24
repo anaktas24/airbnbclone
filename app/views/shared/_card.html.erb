@@ -12,6 +12,9 @@
     <div class="card-body card-body-height">
       <p class="card-text card-body-description"><%= listing.description %></p>
     </div>
+    <div class="card-body pb-0">
+      <p class="card-text card-body-description"><%= listing.category_type%></p>
+    </div>
     <div class="card-body card-price-height">
       <p class="card-text"><i class="fa-sharp fa-solid fa-sack-dollar"></i> Per hour: <br><%= listing.price_per_hour.to_i.round(2) %> CHF</p>
     </div>

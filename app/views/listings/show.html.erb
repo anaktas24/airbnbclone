@@ -4,7 +4,8 @@
 
   <div class="row mb-3 show-card-img-container">
     <div class="col-sm-12 col-md-6 col-lg-4 show-card-img">
-      <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/>
+      <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/> %>
       <%# update above for user uploaded images %>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-4 card-body show-card-body">
@@ -12,11 +13,23 @@
       <p class="card-text"><%= @listing.description %></p>
       <div>
         <p class="card-text show-card-price"><small class="text-muted">Per hour: <%= @listing.price_per_hour.to_i.round(2) %> CHF</small></p>
+        <div>
+        Availability:
+        <br>
+        From:<input type="datetime-local" id="Test_DatetimeLocal">
+        <br>
+        Until:  <input type="datetime-local" id="Test_DatetimeLocal">
+        </div>
+        <div class="my-3">
+          <link rel="preconnect" href="https://fonts.gstatic.com">
+          <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+          <button id="book">Book Now!</button></div>
+
       </div>
     </div>
   </div>
   <hr>
-  <div style="width: 100%; height: 600px;"
+  <div style="width: 100%; height: 500px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
