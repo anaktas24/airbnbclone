@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h2 class="text-center">My bookings</h2>
+
+  <%# Iterate over bookings for where current_user == Booking.user %>
+
+  <div class="row">
+  <% if @bookings.count == 0 %>
+    <h5 class="card-title text-center">You have no current bookings.</h5>
+  <% else %>
+    <% @bookings.each do |booking| %>
+        <div class="col-sm-6 col-md-4 col-lg-3"><%= render 'shared/booking', booking: booking %></div>
+    <% end  %>
+  <% end %>
+
+  </div>
+</div>

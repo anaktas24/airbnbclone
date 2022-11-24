@@ -1,0 +1,39 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+
+  <div class="row mb-3 show-card-img-container">
+    <div class="col-sm-12 col-md-6 col-lg-4 show-card-img">
+      <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/>
+      <%# update above for image related to the post %>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 card-body show-card-body">
+      <h5 class="card-title my-3"><strong>You are borrowing <%= @booking.listing.name.downcase %> from <%= @booking.listing.user.name %> on <%= @booking.start_date.strftime('%d %b %Y') %></strong></h5>
+      <p class="card-text"><%= @booking.listing.description %></p>
+      <div>
+        <p class="card-text show-card-price"><small class="text-muted">Per hour: <%= @booking.listing.price_per_hour.to_i.round(2) %> CHF</small></p>
+      </div>
+      <br>
+      <div>
+        <% if @booking.start_date == @booking.end_date %>
+          <p class="card-text"><%= @booking.start_date.strftime('%d %b %Y') %><br><br>Status: <%= @booking.status.capitalize %></p>
+        <% else %>
+          <p class="card-text"><%= @booking.start_date.strftime('%d %b %Y') %> - <%= @booking.end_date.strftime('%d %b %Y') %><br><br>Status: <%= @booking.status.capitalize %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div>
+    <% if @booking.user == current_user %>
+      <%= link_to "Edit this booking", edit_booking_path(@booking), class: "btn btn-primary w-100"  %>
+      <br>
+      <br>
+      <%= button_to "Destroy this booking", @booking, method: :delete, class: "btn btn-primary w-100" %>
+    <% end %>
+    <hr>
+    <%= link_to "Go to my bookings", bookings_path, class: "btn btn-primary w-100" %>
+  </div>
+
+</div>

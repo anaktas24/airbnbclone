@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Update booking</h2>
+  <br>
+  <p>Note that this will reissue the request to the listing owner</p>
+
+  <%= simple_form_for(@booking) do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit class: "btn btn-primary w-100" %>
+  <% end %>
+  <hr>
+  <%= link_to "Back to booking", booking_path(@booking), class: "btn btn-primary w-100" %>
+</div>

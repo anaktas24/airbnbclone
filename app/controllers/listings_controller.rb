@@ -27,7 +27,7 @@ class ListingsController < ApplicationController
     @listing.user = current_user
     authorize @listing
     if @listing.save
-      redirect_to listings_path #! would be good to make this user specific
+      redirect_to listings_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +36,6 @@ class ListingsController < ApplicationController
   def edit
     @listing = Listing.find(params[:id])
     authorize @listing
-    # TO DO
   end
 
   def update
@@ -61,7 +60,7 @@ class ListingsController < ApplicationController
     @listing.destroy
 
     respond_to do |format|
-      format.html { redirect_to listings_path, notice: "Listing was successfully destroyed." }
+      format.html { redirect_to listings_path, notice: "Listing was successfully deleted." }
       format.json { head :no_content }
     end
   end
