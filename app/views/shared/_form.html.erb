@@ -1,6 +1,7 @@
   <%= simple_form_for(@listing) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :price_per_hour %>
     <%= f.input :location %>
     <%= f.submit class: "btn btn-primary w-100" %>

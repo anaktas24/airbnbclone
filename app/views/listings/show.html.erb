@@ -4,7 +4,8 @@
 
   <div class="row mb-3 show-card-img-container">
     <div class="col-sm-12 col-md-6 col-lg-4 show-card-img">
-      <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/>
+      <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/> %>
       <%# update above for user uploaded images %>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-4 card-body show-card-body">
@@ -22,7 +23,8 @@
         <div class="my-3">
           <link rel="preconnect" href="https://fonts.gstatic.com">
           <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-          <button>Book Now!</button></div>
+          <button id="book">Book Now!</button></div>
+
       </div>
     </div>
   </div>
