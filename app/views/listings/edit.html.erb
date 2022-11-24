@@ -4,10 +4,12 @@
   <%= simple_form_for(@listing) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :price_per_hour %>
     <%= f.input :location %>
-    <%= f.submit class: "btn btn-primary w-100" %>
+    <%= f.input :category_type, placeholder: "Please enter Electronic, Manual, Gas-Powered or Other", collection: ["Electronic", "Manual", "Gas-powered", "Other"]%>
+    <%= f.submit class: "button button-primary" %>
   <% end %>
   <hr>
-  <%= link_to "Back to my listings", listings_path, class: "btn btn-primary w-100" %>
+  <%= link_to "Back to my listings", listings_path, class: "button button-primary" %>
 </div>
