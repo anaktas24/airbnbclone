@@ -41,7 +41,7 @@ User.create({
   }
 )
 
-puts "created users."
+puts "created users!"
 puts "creating 2 listings per user..."
 
 Listing.create({
@@ -108,4 +108,36 @@ Listing.create({
   user_id: 4
 })
 
-puts "finished"
+puts "created listings!"
+puts "creating a few bookings..."
+
+Booking.create({
+  start_date: Date.new(2022,11,28),
+  end_date: Date.new(2022,11,28),
+  listing_id: 8,
+  user_id: 1
+})
+
+Booking.create({
+  start_date: Date.new(2022,12,9),
+  end_date: Date.new(2022,12,15),
+  listing_id: 5,
+  user_id: 4,
+  status: "confirmed"
+})
+
+Booking.create({
+  start_date: Date.new(2023,2,3),
+  end_date: Date.new(2023,2,6),
+  listing_id: 6,
+  user_id: 2
+})
+
+Booking.create({
+  start_date: Date.new(2023,2,25),
+  end_date: Date.new(2023,2,26),
+  listing_id: 1,
+  user_id: 3
+})
+
+puts "FINISHED!"
