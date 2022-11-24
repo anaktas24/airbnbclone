@@ -7,6 +7,7 @@
     <%= f.input :photo, as: :file %>
     <%= f.input :price_per_hour, input_html: { min: '0' }  %>
     <%= f.input :location %>
+    <%= f.input :category_type, placeholder: "Please enter Electronic, Manual, Gas-Powered or Other", collection: ["Electronic", "Manual", "Gas-powered", "Other"]%>
     <%= f.submit class: "btn btn-primary w-100" %>
   <% end %>
   <hr>
