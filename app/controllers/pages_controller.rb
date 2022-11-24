@@ -7,6 +7,13 @@ class PagesController < ApplicationController
     else
       @listings = Listing.all
     end
+
+    if user_signed_in?
+      @default_radius = 50
+      @listings = Listing.near([current_user.latitude, current_user.longitude], @default_radius, order: 'distance').limit(24)
+    else
+      @listings = Listing.all.order('created_at DESC').limit(24)
+    end
   end
 
   def profile
@@ -20,10 +27,7 @@ class PagesController < ApplicationController
     else
       render :profile
     end
-
   end
-
-
 
   private
 

@@ -9,16 +9,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
   </head>
 
   <body>
     <%= render "shared/navbar" %>
-    <div class="my-5">
-      <br>
-    </div>
-    <div class="mt-5 pt-5">
+    <div class="wrapper page-wrapper">
       <%= yield %>
     </div>
+
     <%= render "shared/flashes" %>
     <%= render "shared/footer" %>
   </body>

@@ -1,9 +1,8 @@
-<div class="container">
+<div class="container homepage-container">
   <h2 class="text-center">All listings</h2>
-  <%= link_to "Create new listing", new_listing_path, class: "btn btn-primary w-100" %>
+  <%= link_to "Create new listing", new_listing_path, class: "button button-primary" %>
   <hr>
 
-<%# SearchBar %>
   <div class="row">
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group d-flex">
@@ -32,7 +31,9 @@
       </div>
     <% end %>
   </div>
+
 <%# Iterate over ALL listings from ALL users - ordered by date created - creating a card for each listing %>
+
 
   <hr>
 

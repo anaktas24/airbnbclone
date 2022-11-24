@@ -6,6 +6,15 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     authorize @listing
+    @markers = [ {lat: @listing.latitude,
+                  lng: @listing.longitude,
+                  info_window: render_to_string(partial: "info_window", locals: {listing: @listing})
+                },
+                { lat: current_user.latitude,
+                  lng: current_user.longitude,
+                  info_window: "<br><p>Your location</p>"
+                }
+              ]
   end
 
   def new
@@ -60,7 +69,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :price_per_hour, :location, :category_type)
+    params.require(:listing).permit(:name, :description, :price_per_hour, :location, :photo, :category_type)
   end
 
 end
