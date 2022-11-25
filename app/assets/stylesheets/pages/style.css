@@ -126,15 +126,15 @@ body {
 }
 
 .btn, .btn::after {
-  width: 300px;
-  height: 80px;
-  font-size: 36px;
+  width: 200px;
+  height: 40px;
+  font-size: 12px;
   font-family: 'Bebas Neue', cursive;
   background: linear-gradient(45deg, transparent 5%, #3A9691 5%);
   border: 0;
   color: #fff;
   letter-spacing: 3px;
-  line-height: 88px;
+  line-height: 15px;
   box-shadow: 6px 0px 0px #087d43;
   outline: transparent;
   position: relative;
@@ -149,7 +149,7 @@ body {
   --slice-4: inset(40% -6px 43% 0);
   --slice-5: inset(80% -6px 5% 0);
 
-  content: 'REQUEST BOOKING';
+  content: 'SEARCH';
   display: block;
   position: absolute;
   top: 0;

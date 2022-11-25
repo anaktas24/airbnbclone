@@ -3,60 +3,41 @@
   <%= link_to "Create new listing", new_listing_path, class: "button button-primary" %>
   <hr>
 
-  <div class="row">
+  <div class="row col-6">
     <%= form_with url: listings_path, method: :get, class: "container" do %>
       <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Find a listing"
       %>
-      <%= submit_tag "Search", class: "button button-primary " %>
 
-
-      <li class="dropdown col-3 text-center list-unstyled mx-5">
-        Sort by...
-        <%= image_tag "", class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <%= link_to "Electronic", root_path(query:"Electronic"), class: "dropdown-item" %>
-          <%= link_to "Manual", root_path(query:"Manual"), class: "dropdown-item" %>
-          <%= link_to "Gas-powered", root_path(query:"Gas-powered"), class: "dropdown-item" %>
-          <%= link_to "Other", root_path(query:"Other"), class: "dropdown-item" %>
-        </div>
-
-        <div class="col-2 text-center">
+        <div class="col-6 d-flex  text-center">
           <button name="button" type="submit" class="btn btn-flat">
             <i class="fas fa-search"></i> Search
           </button>
         </div>
 
-        <li class="dropdown col-2 text-center list-unstyled pt-2">
+        <li class="dropdown  col-2 text-center btn btn-secondary list-unstyled pt-2">
           Filter by...
-          <%= image_tag "", class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Electronic", root_path(query:"Electronic"), class: "dropdown-item" %>
-            <%= link_to "Manual", root_path(query:"Manual"), class: "dropdown-item" %>
-            <%= link_to "Gas-powered", root_path(query:"Gas-powered"), class: "dropdown-item" %>
-            <%= link_to "Other", root_path(query:"Other"), class: "dropdown-item" %>
+          <%= image_tag "", class: "dropdown-toggle ", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+            <%= link_to "Electronic", root_path(query:"Electronic"), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Manual", root_path(query:"Manual"), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Gas-powered", root_path(query:"Gas-powered"), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Other", root_path(query:"Other"), class: "dropdown-item btn btn-secondary" %>
           </div>
         </li>
 
-        <li class="dropdown col-2 text-center list-unstyled pt-2">
+        <li class="dropdown col-2 d-flex text-center btn btn-secondary list-unstyled pt-2">
           Sort by...
-          <%= image_tag "", class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "", class: "dropdown-toggle ", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Price (High to low)", root_path(order_by: :price_per_hour, order: :desc), class: "dropdown-item" %>
-            <%= link_to "Price (Low to high)", root_path(order_by: :price_per_hour, order: :asc), class: "dropdown-item" %>
-            <%= link_to "Most recent", root_path(order_by: :created_at, order: :desc), class: "dropdown-item" %>
-            <%= link_to "Least recent", root_path(order_by: :created_at, order: :asc), class: "dropdown-item" %>
+            <%= link_to "Price (High to low)", root_path(order_by: :price_per_hour, order: :desc), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Price (Low to high)", root_path(order_by: :price_per_hour, order: :asc), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Most recent", root_path(order_by: :created_at, order: :desc), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Least recent", root_path(order_by: :created_at, order: :asc), class: "dropdown-item btn btn-secondary" %>
           </div>
         </li>
-
-
-
-      </div>
-    <% end %>
-
-      </li>
 
   </div>
   <% end %>
