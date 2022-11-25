@@ -6,8 +6,8 @@
   <%= simple_form_for(@booking) do |f| %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
-    <%= f.submit class: "btn btn-primary w-100" %>
+    <%= f.submit class: "button button-primary" %>
   <% end %>
   <hr>
-  <%= link_to "Back to booking", booking_path(@booking), class: "btn btn-primary w-100" %>
+  <%= link_to "Back to booking", booking_path(@booking), class: "button button-primary" %>
 </div>

@@ -27,13 +27,13 @@
 
   <div>
     <% if @booking.user == current_user %>
-      <%= link_to "Edit this booking", edit_booking_path(@booking), class: "btn btn-primary w-100"  %>
+      <%= link_to "Edit this booking", edit_booking_path(@booking), class: "button button-primary"  %>
       <br>
       <br>
-      <%= button_to "Destroy this booking", @booking, method: :delete, class: "btn btn-primary w-100" %>
+      <%= button_to "Destroy this booking", @booking, method: :delete, class: "button button-primary" %>
     <% end %>
     <hr>
-    <%= link_to "Go to my bookings", bookings_path, class: "btn btn-primary w-100" %>
+    <%= link_to "Go to my bookings", bookings_path, class: "button button-primary" %>
   </div>
 
 </div>
