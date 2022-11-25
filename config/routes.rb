@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   patch '/profile', to: 'pages#update_profile'
 
   resources :listings do
-    resources :bookings, only: [:show, :create, :edit, :update, :destroy]
+    resources :bookings #, only: [:show, :create, :edit, :update, :destroy]
   end
 end

@@ -6,6 +6,7 @@
   <%= simple_form_for([@listing, @booking]) do |f| %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
+
     <%= f.submit class: "button button-primary w-100" %>
   <% end %>
   <hr>

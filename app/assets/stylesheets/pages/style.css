@@ -93,6 +93,7 @@ body {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
+  margin-bottom: 20px;
 }
 .card-link {
   position: absolute;
@@ -209,5 +210,16 @@ body {
   100% {
     clip-path: var(--slice-1);
     transform: translate(0);
+  }
+}
+.buttons {
+  .left {
+    float: left;
+  }
+  .right {
+    float: right;
+  }
+  .clearfix {
+    clear:both;
   }
 }
