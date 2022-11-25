@@ -17,7 +17,6 @@ class Listing < ApplicationRecord
   validates :location, format: { with: /\A(?!^\d+$)/ }
   validates :location, length: { minimum: 4 }
   validates :location, length: { maximum: 50 }
-
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 end

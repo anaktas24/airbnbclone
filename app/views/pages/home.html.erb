@@ -3,45 +3,49 @@
   <%= link_to "Create new listing", new_listing_path, class: "button button-primary" %>
   <hr>
 
-  <div class="row">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group d-flex">
-        <div class="col-6">
-          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        </div>
-        <div class="col-3 text-center">
+  <div class="row col-6">
+    <%= form_with url: listings_path, method: :get, class: "container" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a listing"
+      %>
+
+        <div class="col-6 d-flex  text-center">
           <button name="button" type="submit" class="btn btn-flat">
             <i class="fas fa-search"></i> Search
           </button>
         </div>
 
-        <li class="dropdown col-3 text-center list-unstyled pt-2">
-          Sort by...
-          <%= image_tag "", class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Electronic", root_path(query:"Electronic"), class: "dropdown-item" %>
-            <%= link_to "Manual", root_path(query:"Manual"), class: "dropdown-item" %>
-            <%= link_to "Gas-powered", root_path(query:"Gas-powered"), class: "dropdown-item" %>
-            <%= link_to "Other", root_path(query:"Other"), class: "dropdown-item" %>
+        <li class="dropdown  col-2 text-center btn btn-secondary list-unstyled pt-2">
+          Filter by...
+          <%= image_tag "", class: "dropdown-toggle ", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+            <%= link_to "Electronic", root_path(query:"Electronic"), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Manual", root_path(query:"Manual"), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Gas-powered", root_path(query:"Gas-powered"), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Other", root_path(query:"Other"), class: "dropdown-item btn btn-secondary" %>
           </div>
         </li>
 
+        <li class="dropdown col-2 d-flex text-center btn btn-secondary list-unstyled pt-2">
+          Sort by...
+          <%= image_tag "", class: "dropdown-toggle ", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Price (High to low)", root_path(order_by: :price_per_hour, order: :desc), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Price (Low to high)", root_path(order_by: :price_per_hour, order: :asc), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Most recent", root_path(order_by: :created_at, order: :desc), class: "dropdown-item btn btn-secondary" %>
+            <%= link_to "Least recent", root_path(order_by: :created_at, order: :asc), class: "dropdown-item btn btn-secondary" %>
+          </div>
+        </li>
 
-
-      </div>
-    <% end %>
   </div>
-
+  <% end %>
+</div>
 <%# Iterate over ALL listings from ALL users - ordered by date created - creating a card for each listing %>
-
-
   <hr>
-
-
   <%# Iterate over listings for current_user %>
-
   <div class="row gx">
-
     <% @listings.each do |listing| %>
       <div class="col-sm-6 col-md-4 col-lg-3"><%= render 'shared/card', listing: listing %></div>
     <% end  %>

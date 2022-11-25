@@ -18,7 +18,7 @@ User.create({
 User.create({
     email: "ioannis@lewagon.com",
     password: "lewagon",
-    address: "Zürcherstrasse, 8952 Zürich",
+    address: "Badenerstrasse, 8048 Zürich",
     name: "Ioannis",
     phone: "0745935921"
   }
