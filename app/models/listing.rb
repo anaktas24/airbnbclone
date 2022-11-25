@@ -1,5 +1,4 @@
 class Listing < ApplicationRecord
-
   belongs_to :user
   has_many :bookings
 
@@ -17,7 +16,6 @@ class Listing < ApplicationRecord
   validates :location, format: { with: /\A(?!^\d+$)/ }
   validates :location, length: { minimum: 4 }
   validates :location, length: { maximum: 50 }
-
   has_one_attached :photo
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?

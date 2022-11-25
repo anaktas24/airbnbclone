@@ -1,6 +1,12 @@
 class ListingsController < ApplicationController
   def index
     @listings = policy_scope(Listing)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR location ILIKE :query"
+      @listings = Listing.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @listings = Listing.all
+    end
   end
 
   def show
@@ -15,6 +21,7 @@ class ListingsController < ApplicationController
                   info_window: "<br><p>Your location</p>"
                 }
               ]
+    @booking = Booking.new # can't figure this out.... trying to create new booking through the listings > show page
   end
 
   def new

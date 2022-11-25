@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # get 'bookings/index'
   # get 'bookings/show'
   # get 'bookings/new'
   # get 'bookings/create'
@@ -9,10 +8,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "pages#home"
+  get '/bookings', to: 'bookings#index'
   get '/profile', to: 'pages#profile'
   patch '/profile', to: 'pages#update_profile'
-  resources :bookings do
-  end
+
   resources :listings do
+    resources :bookings, only: [:show, :create, :edit, :update, :destroy]
   end
 end
