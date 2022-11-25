@@ -4,7 +4,9 @@
 
   <div class="row mb-3 show-card-img-container">
     <div class="col-sm-12 col-md-6 col-lg-4 show-card-img">
-      <img src="https://random.imagecdn.app/100/150" class="show-card-img-height"/>
+      <% if @listing.photo.attached? %>
+        <%= cl_image_tag @listing.photo.key, width: 250, height: 200, crop: :fill %>
+      <% end %>
       <%# update above for image related to the post %>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-4 card-body show-card-body">
@@ -27,13 +29,14 @@
 
   <div>
     <% if @booking.user == current_user %>
-      <%= link_to "Edit this booking", edit_booking_path(@booking), class: "btn btn-primary w-100"  %>
+      <%= link_to "Edit this booking", edit_listing_booking_path(@booking.listing, @booking), class: "button button-primary w-100"  %>
       <br>
       <br>
-      <%= button_to "Destroy this booking", @booking, method: :delete, class: "btn btn-primary w-100" %>
+      <%= button_to "Destroy this booking", listing_booking_path(@booking.listing, @booking), method: :delete, class: "button button-primary w-100" %>
     <% end %>
     <hr>
-    <%= link_to "Go to my bookings", bookings_path, class: "btn btn-primary w-100" %>
+    <%= link_to "Go to my bookings", bookings_path, class: "button button-primary w-100" %>
+
   </div>
 
 </div>

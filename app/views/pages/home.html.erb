@@ -4,11 +4,25 @@
   <hr>
 
   <div class="row">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group d-flex">
-        <div class="col-6">
-          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <%= form_with url: listings_path, method: :get, class: "container" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a listing"
+      %>
+      <%= submit_tag "Search", class: "button button-primary " %>
+
+
+      <li class="dropdown col-3 text-center list-unstyled mx-5">
+        Sort by...
+        <%= image_tag "", class: "dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= link_to "Electronic", root_path(query:"Electronic"), class: "dropdown-item" %>
+          <%= link_to "Manual", root_path(query:"Manual"), class: "dropdown-item" %>
+          <%= link_to "Gas-powered", root_path(query:"Gas-powered"), class: "dropdown-item" %>
+          <%= link_to "Other", root_path(query:"Other"), class: "dropdown-item" %>
         </div>
+
         <div class="col-2 text-center">
           <button name="button" type="submit" class="btn btn-flat">
             <i class="fas fa-search"></i> Search
@@ -41,18 +55,16 @@
 
       </div>
     <% end %>
+
+      </li>
+
   </div>
-
+  <% end %>
+</div>
 <%# Iterate over ALL listings from ALL users - ordered by date created - creating a card for each listing %>
-
-
   <hr>
-
-
   <%# Iterate over listings for current_user %>
-
   <div class="row gx">
-
     <% @listings.each do |listing| %>
       <div class="col-sm-6 col-md-4 col-lg-3"><%= render 'shared/card', listing: listing %></div>
     <% end  %>

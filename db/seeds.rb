@@ -1,7 +1,8 @@
-puts "clearing all users and listings..."
+puts "clearing all users, listings and bookings..."
 
 User.destroy_all
 Listing.destroy_all
+Booking.destroy_all
 
 puts "creating the four mangos as users..."
 
@@ -17,7 +18,7 @@ User.create({
 User.create({
     email: "ioannis@lewagon.com",
     password: "lewagon",
-    address: "Zürcherstrasse, 8952 Zürich",
+    address: "Badenerstrasse, 8048 Zürich",
     name: "Ioannis",
     phone: "0745935921"
   }

@@ -93,6 +93,7 @@ body {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
+  margin-bottom: 20px;
 }
 .card-link {
   position: absolute;
@@ -124,12 +125,12 @@ body {
   background-color: #3A9691;
 }
 
-#book, #book::after {
+.btn, .btn::after {
   width: 300px;
   height: 80px;
   font-size: 36px;
   font-family: 'Bebas Neue', cursive;
-  background: linear-gradient(45deg, transparent 5%, #2ac989 5%);
+  background: linear-gradient(45deg, transparent 5%, #3A9691 5%);
   border: 0;
   color: #fff;
   letter-spacing: 3px;
@@ -140,7 +141,7 @@ body {
 }
 
 
-#book::after {
+.btn::after {
   --slice-0: inset(50% 50% 50% 50%);
   --slice-1: inset(80% -6px 0 0);
   --slice-2: inset(50% -6px 30% 0);
@@ -148,19 +149,19 @@ body {
   --slice-4: inset(40% -6px 43% 0);
   --slice-5: inset(80% -6px 5% 0);
 
-  content: 'BOOK NOW!';
+  content: 'REQUEST BOOKING';
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 3%, #087d43 3%, #087d43 5%, #2ac989 5%);
+  background: linear-gradient(45deg, transparent 3%, #087d43 3%, #087d43 5%, #3A9691 5%);
   text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #087d43;
   clip-path: var(--slice-0);
 }
 
-#book:hover::after {
+.btn:hover::after {
   animation: 1s glitch;
   animation-timing-function: steps(2, end);
 }
@@ -209,5 +210,19 @@ body {
   100% {
     clip-path: var(--slice-1);
     transform: translate(0);
+  }
+}
+
+.buttons {
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .clearfix {
+    clear:both;
   }
 }

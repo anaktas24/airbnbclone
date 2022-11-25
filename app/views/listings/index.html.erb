@@ -4,10 +4,19 @@
 
   <%= link_to "Create new listing", new_listing_path, class: "button button-primary" %>
   <hr>
-
   <%# Iterate over listings for current_user %>
 
   <div class="row">
+  <div>
+    <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a listing"
+      %>
+      <%= submit_tag "Search", class: "button button-primary" %>
+    <% end %>
+  </div>
 
     <% @listings.each do |listing| %>
         <div class="col-sm-6 col-md-4 col-lg-3"><%= render 'shared/card', listing: listing %></div>
