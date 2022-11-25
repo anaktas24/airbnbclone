@@ -1,6 +1,8 @@
 <div class="card-trip">
   <div class="col card-component text-decoration-none">
-    <img class="d-block w-100 image" src="https://random.imagecdn.app/100/150" alt="First slide">
+    <% if listing.photo.attached? %>
+      <%= cl_image_tag listing.photo.key, width: 250, height: 200, crop: :fill %>
+    <% end %>
   </div>
   <div class="card ">
     <div class="card-header card-location-height">
