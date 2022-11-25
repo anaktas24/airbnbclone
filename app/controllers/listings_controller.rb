@@ -1,3 +1,5 @@
+
+
 class ListingsController < ApplicationController
   def index
     @listings = policy_scope(Listing)
@@ -64,11 +66,17 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     authorize @listing
-    @listing.destroy
 
     respond_to do |format|
-      format.html { redirect_to listings_path, notice: "Listing was successfully deleted." }
-      format.json { head :no_content }
+      if @listing.destroy
+        format.html { redirect_to listings_path, notice: "Listing was successfully deleted." }
+        format.json { head :no_content }
+      else
+        binding.irb
+        format.html { redirect_to listing_path, status: :unprocessable_entity, notice: "Listing could not be deleted." }
+        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        # need to check these erroes works (no validations)
+      end
     end
   end
 
