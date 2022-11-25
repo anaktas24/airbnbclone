@@ -15,6 +15,7 @@ class ListingsController < ApplicationController
                   info_window: "<br><p>Your location</p>"
                 }
               ]
+    @booking = Booking.new # can't figure this out.... trying to create new booking through the listings > show page
   end
 
   def new

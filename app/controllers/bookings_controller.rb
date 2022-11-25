@@ -6,27 +6,30 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
-  end
-
-  def new
-    @booking = Booking.new
-    authorize @booking
+    @listing = @booking.listing
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.status = "pending"
+    @listing = Listing.find(params[:listing_id])
+    @booking = Booking.new(booking_params) # this gets the date
+    @booking.listing_id = @listing.id
+    @booking.user_id = current_user.id # this works
+    @booking.status = "pending" # this works
     authorize @booking
+    # raise
     if @booking.save
-      redirect_to bookings_path
+      respond_to do |format|
+        format.html { redirect_to bookings_path, notice: "Booking was created and the request has been issued to the listing owner." }
+        format.json { head :no_content }
+      end
     else
-      render :new, status: :unprocessable_entity
+      redirect_to listing_bookings_path, status: :unprocessable_entity
     end
   end
 
   def edit
     @booking = Booking.find(params[:id])
+    @listing = @booking.listing
     authorize @booking
   end
 
@@ -36,7 +39,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to bookings_path, notice: "Booking was updated and the request has been reissued to booking owner." }
+        format.html { redirect_to bookings_path, notice: "Booking was updated and the request has been reissued to the listing owner." }
         format.json { render :show, status: :ok, location: @booking }
         @booking.status = "pending"
         @booking.save
