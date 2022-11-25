@@ -1,15 +1,34 @@
 <div class="container">
 
-  <h2 class="text-center">My bookings</h2>
+  <h2 class="text-center">Current bookings for <strong><%= @listing.name.downcase %></strong></h2>
 
   <%# Iterate over bookings for where current_user == Booking.user %>
 
   <div class="row">
   <% if @bookings.count == 0 %>
-    <h5 class="card-title text-center">You have no current bookings.</h5>
+    <h5 class="card-title text-center">You have no current bookings for this listing.</h5>
   <% else %>
     <% @bookings.each do |booking| %>
-        <div class="col-sm-6 col-md-4 col-lg-3"><%= render 'shared/booking', booking: booking %></div>
+        <div class="col-sm-6 col-md-4 col-lg-3"><%= render 'shared/booking', booking: booking %>
+        <% if booking.status == "pending" %>
+          <%= button_to "Confirm booking",
+                                { action: "confirm", id: booking.id },
+                                method: :patch,
+                                data: { confirm: "Are you sure you want to confirm?" },
+                                class: "button button-primary" %>
+          <%= button_to "Reject booking",
+                                { action: "reject", id: booking.id },
+                                method: :patch,
+                                data: { confirm: "Are you sure you want to reject?" },
+                                class: "button button-primary" %>
+        <% else %>
+          <%= button_to "Reject booking",
+                      { action: "reject", id: booking.id },
+                      method: :patch,
+                      data: { confirm: "Are you sure you want to reject?" },
+                      class: "button button-primary" %>
+        <% end %>
+        </div>
     <% end  %>
   <% end %>
 

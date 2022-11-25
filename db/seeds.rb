@@ -50,7 +50,8 @@ Listing.create({
   description: "Plug drill straight in to mains for EXTRA POWER!!! Will go through absolutely anything (except metal, diamond and other precious stones)",
   price_per_hour: 5,
   location: "Löwenplatz, Luzern",
-  user_id: 1
+  user_id: 1,
+  category_type: "Electronic"
 })
 
 Listing.create({
@@ -58,7 +59,8 @@ Listing.create({
   description: "Workbench includes sander, disc saw and plenty of tools - open to use but must provide own materials",
   price_per_hour: 10,
   location: "Mozartstrasse, Luzern",
-  user_id: 1
+  user_id: 1,
+  category_type: "Electronic"
 })
 
 Listing.create({
@@ -66,7 +68,8 @@ Listing.create({
   description: "Wonky shelves no longer - borrow my spirit level(s) - come in various sizes",
   price_per_hour: 3.50,
   location: "Zürcherstrasse, 8952 Zürich",
-  user_id: 2
+  user_id: 2,
+  category_type: "Electronic"
 })
 
 Listing.create({
@@ -74,7 +77,8 @@ Listing.create({
   description: "My Scottish Fold hates these... available to borrow and stop your crazy cat scratching you!",
   price_per_hour: 2,
   location: "Zürcherstrasse, 8952 Zürich",
-  user_id: 2
+  user_id: 2,
+  category_type: "Electronic"
 })
 
 Listing.create({
@@ -82,7 +86,8 @@ Listing.create({
   description: "Does your hand hurt from too much manual hammering? Homer Simpson has invented an electric hammer to save your fingers!!",
   price_per_hour: 2,
   location: "Verenastrasse, Zürich",
-  user_id: 3
+  user_id: 3,
+  category_type: "Electronic"
 })
 
 Listing.create({
@@ -90,7 +95,8 @@ Listing.create({
   description: "Electric pump available to pump up your tyres! Comes with pressure dial and multiple valve connectors",
   price_per_hour: 10,
   location: "Verenastrasse, Zürich",
-  user_id: 3
+  user_id: 3,
+  category_type: "Electronic"
 })
 
 Listing.create({
@@ -98,7 +104,8 @@ Listing.create({
   description: "Keep your sight with this welding helmet. Prevents electricity getting in to your eyeballs which isn't recommended - trust me!!",
   price_per_hour: 20,
   location: "Bahnhofstrasse, Zürich",
-  user_id: 4
+  user_id: 4,
+  category_type: "Electronic"
 })
 
 Listing.create({
@@ -106,7 +113,8 @@ Listing.create({
   description: "Put this computer chip in any electrical appliance to see it come to life!! Comes with emergency deactivation button in case of robot rebellion... Yes I've watched iRobot",
   price_per_hour: 50,
   location: "Bahnhofstrasse, Zürich",
-  user_id: 4
+  user_id: 4,
+  category_type: "Electronic"
 })
 
 puts "created listings!"
