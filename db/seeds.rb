@@ -1,7 +1,8 @@
-puts "clearing all users and listings..."
+puts "clearing all users, listings and bookings..."
 
 User.destroy_all
 Listing.destroy_all
+Booking.destroy_all
 
 puts "creating the four mangos as users..."
 
